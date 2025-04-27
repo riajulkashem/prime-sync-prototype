@@ -22,7 +22,12 @@ jobs:
     - name: List icons directory
       run: dir icons
     - name: Check for icon.ico
-      run: if not exist icons/icon.ico echo "icon.ico not found!"
+      run: |
+        if (-not (Test-Path "icons/icon.ico")) {
+          Write-Output "icon.ico not found!"
+          exit 1
+        }
+      shell: powershell
     - name: Build with PyInstaller
       run: python build.py
     - name: Upload artifact
