@@ -1,0 +1,14 @@
+[project]
+name = "primesync"
+version = "0.1.0"
+description = "PrimeSync is a desktop application built with PySide6 (Qt for Python) to manage attendance tracking across multiple devices. It integrates with biometric devices using the pyzk library to pull and push user and attendance data, syncs with a cloud server, and provides a user-friendly interface for managing devices, users, and attendance records. The application is designed for organizations to streamline attendance tracking, offering features like user management, device synchronization, and cloud integration."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.2.3",
+    "peewee>=3.17.9",
+    "pyinstaller>=6.13.0",
+    "pyside6>=6.9.0",
+    "pyzk>=0.9",
+    "requests>=2.32.3",
+]
