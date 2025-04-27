@@ -9,7 +9,7 @@ def build_app():
 
     # Common PyInstaller arguments
     args = [
-        "main.py",  # Entry point
+        "main.py",  # Entry point (updated to match your structure)
         "--name", "PrimeSync",  # Name of the executable
         "--windowed",  # GUI mode (no console)
         "--distpath", "dist",  # Output directory
@@ -25,9 +25,9 @@ def build_app():
 
     # Platform-specific icon
     if system == "Windows":
-        args.extend(["--icon", "icons/app.ico"])
+        args.extend(["--icon", "icons/icon.ico"])  # Updated to match your file name
     elif system == "Darwin":  # macOS
-        args.extend(["--icon", "icons/app.icns"])
+        args.extend(["--icon", "icons/icon.icns"])  # Updated to match your file name
     else:
         print("Unsupported platform for icon setting. Building without icon.")
 

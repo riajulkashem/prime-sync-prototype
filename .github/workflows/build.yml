@@ -21,6 +21,8 @@ jobs:
         pip install -r requirements.txt
     - name: List icons directory
       run: dir icons
+    - name: Check for icon.ico
+      run: if not exist icons/icon.ico echo "icon.ico not found!"
     - name: Build with PyInstaller
       run: python build.py
     - name: Upload artifact
@@ -43,6 +45,15 @@ jobs:
         pip install -r requirements.txt
     - name: List icons directory
       run: ls -la icons
+    - name: Check for icon.icns
+      run: |
+        if [ -f "icons/icon.icns" ]; then
+          echo "icon.icns found!"
+        else
+          echo "icon.icns not found! Listing all files with similar names..."
+          find icons -iname "icon.icns"
+          exit 1  # Fail the build to ensure the icon file is added
+        fi
     - name: Build with PyInstaller
       run: python build.py
     - name: Upload artifact
